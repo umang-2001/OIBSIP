@@ -1,0 +1,138 @@
+<!-- Umang Tank -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    body {
+        background-image: url(https://cdn.pixabay.com/photo/2015/11/15/08/20/mathematics-1044114_960_720.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .calculator {
+        width: 100%;
+        max-width: 400px;
+        margin: 50px auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 5px 5px 5px #000000;
+        background-color: blanchedalmond;
+
+    }
+
+    .cal_screen {
+        background-color: #a59898;
+        width: 100%;
+        min-height: 100px;
+        text-align: right;
+        font-size: 30px;
+        padding: 12px;
+    }
+
+    .cal_button {
+        background: whitesmoke;
+        padding: 15px;
+        ;
+    }
+
+    #button {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    #button li {
+        background: whitesmoke;
+        font-size: 25px;
+        width: 20%;
+        margin: 5px 5px;
+        color: black;
+        padding: 10px;
+        border-radius: 25%;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.2s;
+        font-weight: bolder;
+    }
+
+    #button li:hover {
+        background: #777777;
+        color: whitesmoke;
+    }
+</style>
+
+<body>
+    <div class="calculator">
+        <div class="cal_screen">
+            <h1 id="fin_result"></h1>
+        </div>
+        <div class="cal_button">
+            <ul id="button">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>C</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>+</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>-</li>
+                <li>0</li>
+                <li>x</li>
+                <li>/</li>
+                <li id="eql">=</li>
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        var button = document.getElementById("button");
+        var all_li = button.querySelectorAll('li');
+        var fin_result = document.getElementById("fin_result");
+
+        for (let i = 0; i < all_li.length; i++) {
+            all_li[i].addEventListener("click", function () {
+                if (this.innerHTML == "=") {
+                    fin_result.innerHTML = eval(fin_result.innerHTML);
+                }
+                else {
+
+                    if (this.innerHTML == "x") {
+                        fin_result.innerHTML += "*";
+                    }
+                    else if (this.innerHTML == "C") {
+                        fin_result.innerHTML = " ";
+                    }
+                    else {
+                        fin_result.innerHTML += this.innerHTML;
+                    }
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
